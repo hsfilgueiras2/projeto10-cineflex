@@ -138,6 +138,21 @@ const GlobalStyle = createGlobalStyle`
 
 
     }
+    section{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    section div span {
+        font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+margin-right:12px;
+color: #4E5A65;
+    }
 `
 
 export default GlobalStyle;

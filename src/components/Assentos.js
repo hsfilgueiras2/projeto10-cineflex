@@ -69,18 +69,18 @@ export default function Assentos(props){
             }
             </div>
         </ListaAssentos>
-        <div>
-            <div>
+        <section>
+            <Icones>
                 <div></div>
                 <div></div>
                 <div></div>
-            </div>
+            </Icones>
             <div>
                 <span>Selecionado</span>
                 <span>Disponivel</span>
                 <span>Indisponivel</span>
             </div>
-        </div>
+        </section>
         <form onSubmit={realizarCompra} >
             <label>Nome do comprador:</label>
             <input type="text" placeholder='Digite seu nome...' value={buyerName} onChange={e => setBuyerName(e.target.value)}></input>
@@ -94,6 +94,40 @@ export default function Assentos(props){
         </>
     )
 }
+const Icones = styled.div`
+width:100%;
+height:30px;
+display:flex;
+justify-content:center;
+:first-child{
+    width: 190px;
+    display:flex;
+    justify-content:space-between;
+}
+:first-child :nth-child(1){
+    background: #1AAE9E;
+    border: 1px solid #0E7D71;
+    border-radius: 17px;
+    width: 25px;
+    height: 25px;
+}
+:first-child :nth-child(2){
+    
+    background: #C3CFD9;
+    border: 1px solid #7B8B99;
+    border-radius: 17px;
+    width: 25px;
+    height: 25px;
+}
+:first-child :nth-child(3){
+    
+    background: #FBE192;
+    border: 1px solid #F7C52B;
+    border-radius: 17px;
+    width: 25px;
+    height: 25px;
+}
+`;
 const ListaAssentos = styled.ul`
 margin-top:67px;
 display:flex;
