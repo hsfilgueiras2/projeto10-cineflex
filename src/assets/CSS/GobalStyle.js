@@ -80,6 +80,64 @@ const GlobalStyle = createGlobalStyle`
         margin-left:14px;
         color: #293845;
     }
+    form{
+        display:flex;
+        flex-direction:column;
+        width:100%;
+        padding-left:24px;
+    }
+    input{
+        width: 327px;
+        height: 51px;
+
+        background: #FFFFFF;
+        border: 1px solid #D5D5D5;
+        border-radius: 3px;
+    }
+    label{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+
+        color: #293845;
+
+
+    }
+    ::placeholder {
+        font-family: 'Roboto';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+
+        color: #AFAFAF;
+
+
+    }
+    form button{
+        background: #E8833A;
+        border-radius: 3px;
+        width: 225px;
+        height: 42px;
+        border-width:0px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFFFF;
+
+
+    }
 `
 
 export default GlobalStyle;

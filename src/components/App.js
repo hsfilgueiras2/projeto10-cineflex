@@ -11,6 +11,8 @@ import Assentos from "./Assentos";
 
 
 export default function App(){
+    const[buyerInfo,setBuyerInfo] = useState()
+    const[sessionInfo,setSessionInfo] = useState();
     const [filmes, setFilmes] = useState([]);
     useEffect(() => {
 		const requisicao = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
@@ -34,7 +36,8 @@ export default function App(){
         <Routes>
             <Route path="/" element={<Filmes arrFilmes={filmes} />}/>
             <Route path="/sessoes/:idFilme" element={<Horarios />} />
-            <Route path="/assentos/:idSessao" element={<Assentos />}/>
+            <Route path="/assentos/:idSessao" element={<Assentos buyerInfo={buyerInfo} setBuyerInfo={setBuyerInfo} sessionInfo={sessionInfo} setSessionInfo={setSessionInfo} />}/>
+            <Route path="/sucesso" element={<Sucesso buyerInfo={buyerInfo} sessionInfo={sessionInfo}/>}/>
         </Routes>
     </BrowserRouter>
     </>)

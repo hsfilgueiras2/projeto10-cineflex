@@ -40,7 +40,7 @@ export default function Horarios(){
 				)
 			}	
 		</Horario>
-		<Rodape linkImg={infoFilme.posterURL} movieTitle={infoFilme.title} movieTime={null}/> 
+		<Rodape linkImg={infoFilme.posterURL} movieTitle={infoFilme.title} movieTime={""}/> 
         </>
     )
 }
