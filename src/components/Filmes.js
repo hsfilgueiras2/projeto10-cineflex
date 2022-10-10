@@ -1,33 +1,25 @@
 import axios from "axios";
 import react from "react";
-import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
-export default function Filmes(){
-    const [filmes, setFilmes] = useState([]);
-    useEffect(() => {
-		const requisicao = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
-
-		requisicao.then(resposta => {
-			console.log(resposta);
-            setFilmes(...[resposta.data]);
-		});
-
-		requisicao.catch(erro => {
-			console.log(erro);
-		});
-
-	}, []);
-    console.log(filmes)
+export default function Filmes(props){
+    
     return(
     <>
     <TextoSelecioneFilme>Selecione o filme</TextoSelecioneFilme>
     <ListaFilmes>
-        {filmes.map((item,index)=>
-            <li key={index}>
-                <img src={item.posterURL}></img>
-            </li>
+        {props.arrFilmes.map((item,index)=>
+
+            <Link key={index} to={`/sessoes/${item.id}`}>
+                <li  >
+                    
+                    <img src={item.posterURL}></img>
+                    
+                </li>
+            </Link>
+        
         )}
     </ListaFilmes>
     </>
@@ -46,15 +38,19 @@ line-height: 28px;
 display: flex;
 align-items: center;
 justify-content: center;
-letter-spacing: 0.04em;
 `;
 const ListaFilmes = styled.ul`
     display:flex;
     flex-wrap:wrap;
-    padding:30px;
+    padding:15px;
     box-sizing:border-box;
+    display:flex;
+    justify-content:space-between;
 
     li{
+        margin-left:15px;
+        margin-right:15px;
+        margin-bottom:11px;
         width: 145px;
         height: 209px;
         background: #FFFFFF;

@@ -4,14 +4,37 @@ import Horarios from "./Horarios";
 import Sucesso from "./Sucesso";
 import styled from 'styled-components';
 import GlobalStyle from "../assets/CSS/GobalStyle";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from "axios";
 
 
 export default function App(){
+    const [filmes, setFilmes] = useState([]);
+    useEffect(() => {
+		const requisicao = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
+
+		requisicao.then(resposta => {
+			console.log(resposta);
+            setFilmes(...[resposta.data]);
+		});
+
+		requisicao.catch(erro => {
+			console.log(erro);
+		});
+
+	}, []);
+    console.log(filmes)
     return(    
     <>
+    <BrowserRouter>
     <GlobalStyle />
-    <HeaderBar>CINEFLEX</HeaderBar>
-    <Filmes/>
+        <HeaderBar>CINEFLEX</HeaderBar>
+        <Routes>
+            <Route path="/" element={<Filmes arrFilmes={filmes} />}/>
+            <Route path="/sessoes/:idFilme" element={<Horarios />} />
+        </Routes>
+    </BrowserRouter>
     </>)
 
 }
