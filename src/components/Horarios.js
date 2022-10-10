@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import react from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 export default function Horarios(){
     const { idFilme } = useParams();
     const [infoFilme, setInfoFilme] = useState({days:[]});
-	const [daysFilme, setDaysFilme] = useState([]);
     useEffect(() => {
 		const requisicaoInfo = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`);
 
@@ -20,8 +20,7 @@ export default function Horarios(){
 		requisicaoInfo.catch(erroInfo => {
 			console.log(erroInfo);
 		});
-		setDaysFilme(...[infoFilme.days])
-		console.log(infoFilme.days)
+		
 	}, []);
 
     return(
@@ -30,16 +29,18 @@ export default function Horarios(){
 		<h2>Selecione o horário</h2>
 			{
 				infoFilme.days.map((item,index)=>
-				<li>
+				<li key={index}>
 					<h3>{`${item.weekday} - ${item.date}`}</h3>
-					{item.showtimes.map((time,index)=>
+					{item.showtimes.map((time,indexE)=>
+					<Link key={indexE} to={`/assentos/${time.id}`}>
 					<button>{time.name}</button>
+					</Link>
 					)}
 				</li>
 				)
 			}	
 		</Horario>
-		<Rodape infoRodape={infoFilme}/> 
+		<Rodape linkImg={infoFilme.posterURL} movieTitle={infoFilme.title} movieTime={null}/> 
         </>
     )
 }

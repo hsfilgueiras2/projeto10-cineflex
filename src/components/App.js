@@ -7,6 +7,7 @@ import GlobalStyle from "../assets/CSS/GobalStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import Assentos from "./Assentos";
 
 
 export default function App(){
@@ -33,6 +34,7 @@ export default function App(){
         <Routes>
             <Route path="/" element={<Filmes arrFilmes={filmes} />}/>
             <Route path="/sessoes/:idFilme" element={<Horarios />} />
+            <Route path="/assentos/:idSessao" element={<Assentos />}/>
         </Routes>
     </BrowserRouter>
     </>)

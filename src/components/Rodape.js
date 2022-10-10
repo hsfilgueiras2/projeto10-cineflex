@@ -4,9 +4,9 @@ export default function Rodape(props){
         <>
         <footer>
             <div>
-                <img src={props.infoRodape.posterURL}></img>
+                <img src={props.linkImg}></img>
             </div>
-            <h2>{props.infoRodape.title}</h2>
+            <h2>{props.movieTitle}<br></br>{`${props.movieTime.weekday} - ${props.movieTime.date}`}</h2>
         </footer>
         </>
     )
