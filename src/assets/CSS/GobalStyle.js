@@ -44,6 +44,42 @@ const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+    footer{
+        position:fixed;
+        bottom:0px;
+        width:100%;
+        left:0px;
+        height:117px;
+        background-color:#DFE6ED;
+        display:flex;
+        align-items:center;
+    }
+    footer  div{
+        width:64px;
+        height:89px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        margin-left:10px;
+    }
+    footer div  img{
+        width: 48px;
+        height: 72px;
+    }
+    footer h2{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        margin-left:14px;
+        color: #293845;
+    }
 `
 
 export default GlobalStyle;
